@@ -1,0 +1,9 @@
+# IntelliJ
+*.iml
+*.idea
+
+# Output/screenshot
+output/
+
+# Reports and logfiles
+target/
