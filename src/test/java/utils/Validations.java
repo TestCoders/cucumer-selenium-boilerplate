@@ -46,24 +46,18 @@ public class Validations {
         Assert.assertFalse("Expected dropdownlist does not match actual dropdownlist", results.contains("false"));
     }
 
-    public  void compareLists(List<WebElement> element, List<String> lijstExpected){
+    public  void compareLists(List<WebElement> element, List<String> listExpected){
 
         List<String> actualList = new ArrayList<>();
         ArrayList<String> results = new ArrayList<>();
 
         for(WebElement expectedListItem : element){
-            System.out.println("Found label: " + expectedListItem.getText());
-            List<WebElement> children = expectedListItem.findElements(By.cssSelector("*"));
+            System.out.println("Found item: " + expectedListItem.getText());
             String labeltext = expectedListItem.getText();
-            if(labeltext.contains("Geboortedatum")){
-                for (WebElement child : children){
-                    labeltext = labeltext.replace(child.getText(), "");
-                }
-            }
             actualList.add(labeltext.trim());
         }
 
-        for(String labelExpected : lijstExpected){
+        for(String labelExpected : listExpected){
             if(actualList.contains(labelExpected)){
                 results.add("true");
             } else {
@@ -72,6 +66,6 @@ public class Validations {
             }
         }
 
-        Assert.assertFalse("Werkelijke lijst " + actualList +" komt niet overeen met gevonden lijst: " + lijstExpected, results.contains("false"));
+        Assert.assertFalse("Actual list  " + actualList +" is not equal to expected list: " + listExpected, results.contains("false"));
     }
 }

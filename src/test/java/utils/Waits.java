@@ -18,13 +18,7 @@ public class Waits {
     public void waitForElement(WebElement element) {
         //Generic wait script which can be used for all elements.
         //If you want to wait for more than 10 seconds, you can use the function beneath this one.
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        try {
-            wait.until(ExpectedConditions.visibilityOf(element));
-        } catch (NoSuchElementException | TimeoutException | StaleElementReferenceException e) {
-            //exception handling
-            Assert.fail("Element not found on page: " + element);
-        }
+       waitForElement(element, 10);
     }
 
     public void waitForElement(WebElement element, int seconds) {
@@ -33,7 +27,7 @@ public class Waits {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
         } catch (NoSuchElementException | TimeoutException | StaleElementReferenceException e) {
-            //exception handling
+            //exception handling: generate clean error message
             Assert.fail("Element not found on page: " + element);
         }
     }
