@@ -120,9 +120,11 @@ public class StepDefinitions {
 
     @Then("I can see the menu items:")
     public void iCanSeeTheMenuItems(List<String> lijstExpected) {
+        Waits waits = new Waits(driver);
         Validations validations = new Validations(driver);
         AutomationStore automationStore = new AutomationStore(driver);
 
+        waits.waitForElements(automationStore.dropdownItemsCategoryWomen);
         validations.compareLists(automationStore.dropdownItemsCategoryWomen, lijstExpected);
 
     }

@@ -39,7 +39,7 @@ public class Validations {
             } else {
                 //if the expected list item cannot be found in the actual list, add 'false'
                 results.add("false");
-                System.out.println("Houston we have a problem! " + listItem + " is not present in de list!");
+                System.out.println("Houston we have a problem! " + listItem + " is not present in the list!");
             }
         }
         //If the list containing the results only contains 'true' all items in the actual list match an item in the expected list
@@ -57,12 +57,15 @@ public class Validations {
             actualList.add(labeltext.trim());
         }
 
+        //Verify both list have the same length to make sure there are no extra items or too few items in one of the lists
+        Assert.assertEquals("The size of the expected list is not equal to the size of the actual list", listExpected.size(), actualList.size());
+
         for(String labelExpected : listExpected){
             if(actualList.contains(labelExpected)){
                 results.add("true");
             } else {
                 results.add("false");
-                System.out.println("Error!!! " + labelExpected + " komt niet voor in de lijst!!");
+                System.out.println("Error!!! " + labelExpected + " is not present in the actual list!");
             }
         }
 
