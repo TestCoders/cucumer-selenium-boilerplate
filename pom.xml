@@ -11,7 +11,7 @@
     <properties>
         <cucumber.version>5.3.0</cucumber.version>
         <selenium.version>3.13.0</selenium.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <commons.version>2.6</commons.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
